@@ -76,15 +76,7 @@
       <tr class="row2">
 	<th scope="row">Status</th>
 	<td>
-          {% ifequal  experiment.state  experiment_states.enabled %}
-          Enabled
-          {% endifequal %}
-          {% ifequal  experiment.state  experiment_states.disabled %}
-          Disabled
-          {% endifequal %}
-          {% ifequal  experiment.state  experiment_states.promoted %}
-          Promoted
-          {% endifequal %}
+        {{ experiment.get_state_display }}
 	</td>
       </tr>
       <tr class="row1">
