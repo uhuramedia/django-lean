@@ -156,8 +156,8 @@ class BaseReportGenerator(object):
         for experiment in experiments:
             start_date = experiment.start_date
             current_date = start_date
-            end_date = experiment.end_date or yesterday
-            end_date = min(end_date, yesterday)
+            end_date = experiment.end_date or datetime.today()
+            #end_date = min(end_date, yesterday)
             
             # get or create the report for all the days of the experiment
             while current_date <= end_date:
