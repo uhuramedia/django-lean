@@ -5,7 +5,7 @@
     <tr>
       <th rowspan="2" class="date group_first group_last">Date</th>
       <th colspan="2" class="group">Participants</th>
-      {% for goal_name,goal_data in daily_data.0.conversion_data.goal_types.items %}
+      {% for goal_name,goal_data in daily_data.1.conversion_data.goal_types.items %}
       <th colspan="4" class="group">{{ goal_name }}</th>
       {% endfor %}
       <th colspan="4" class="group"><em>Any</em></th>
@@ -13,7 +13,7 @@
     <tr>
       <th class="control group_first">Control</th>
       <th class="test group_last">Test</th>
-      {% for goal_name,goal_data in daily_data.0.conversion_data.goal_types.items %}
+      {% for goal_name,goal_data in daily_data.1.conversion_data.goal_types.items %}
       <th class="control group_first">Control</th>
       <th class="test">Test</th>
       <th class="improvement">Improvement</th>
