@@ -2,7 +2,7 @@
 import logging
 l = logging.getLogger(__name__)
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 from django_lean.experiments.models import (DailyEngagementReport,
                                             DailyConversionReport,
@@ -156,8 +156,8 @@ class BaseReportGenerator(object):
         for experiment in experiments:
             start_date = experiment.start_date
             current_date = start_date
-            end_date = experiment.end_date or datetime.today()
-            #end_date = min(end_date, yesterday)
+            end_date = experiment.end_date or date.today()
+            end_date = min(end_date, date.today())
             
             # get or create the report for all the days of the experiment
             while current_date <= end_date:
