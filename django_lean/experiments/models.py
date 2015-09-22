@@ -16,6 +16,9 @@ class AnonymousVisitor(models.Model):
     """An anonymous visitor"""
     created = models.DateTimeField(auto_now_add=True, db_index=True)
 
+    def __unicode__(self):
+        return u'%s' % self.created
+
 
 class GoalType(models.Model):
     """Defines a type of goal."""
@@ -30,6 +33,9 @@ class GoalRecord(models.Model):
     created = models.DateTimeField(auto_now_add=True, db_index=True)
     anonymous_visitor = models.ForeignKey(AnonymousVisitor)
     goal_type = models.ForeignKey(GoalType)
+
+    def __unicode__(self):
+        return u'%s:%s' % (self.goal_type, self.created)
 
     @classmethod
     def _record(cls, goal_name, experiment_user):

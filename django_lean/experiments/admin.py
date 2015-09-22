@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from django_lean.experiments.models import (Experiment, Participant,
-                                            GoalType, AnonymousVisitor)
+from django_lean.experiments.models import (Experiment, Participant, GoalRecord,
+                                            GoalType, AnonymousVisitor, DailyConversionReport)
 
 
 class GoalTypeOptions(admin.ModelAdmin):
     list_display = ('name',)
 
+
 class ExperimentOptions(admin.ModelAdmin):
     list_display = ('name', 'start_date', 'end_date', 'state')
     list_filter = ('name', )
     search_fields = ('name', )
+
 
 class ParticipantOptions(admin.ModelAdmin):
     list_display = ('user', 'experiment', 'group')
@@ -21,5 +23,7 @@ class ParticipantOptions(admin.ModelAdmin):
 
 admin.site.register(AnonymousVisitor)
 admin.site.register(GoalType, GoalTypeOptions)
+admin.site.register(GoalRecord)
 admin.site.register(Experiment, ExperimentOptions)
 admin.site.register(Participant, ParticipantOptions)
+admin.site.register(DailyConversionReport)
