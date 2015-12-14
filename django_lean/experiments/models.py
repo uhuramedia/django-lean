@@ -276,7 +276,7 @@ class Participant(models.Model):
         (CONTROL_GROUP, "Control"),
         (TEST_GROUP, "Test"))
 
-    user = models.ForeignKey(User, null=True)
+    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     experiment = models.ForeignKey(Experiment)
     enrollment_date = models.DateField(db_index=True, auto_now_add=True)
     group = models.IntegerField(choices=GROUPS)
